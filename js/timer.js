@@ -62,7 +62,7 @@ ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
             const minutes = Math.floor((calculatedFocusTime % 3600) / 60);
             const seconds = Math.floor((calculatedFocusTime % 3600) % 60);
             
-            ComfyJS.Say(`Nam has focused a total of ${hours} hour(s), ${minutes} minute(s), and ${seconds} second(s).`);
+            ComfyJS.Say(`${config.twitchStreamer} has focused a total of ${hours} hour(s), ${minutes} minute(s), and ${seconds} second(s).`);
             break;
           case "reset":
             if (flowState == FlowState.Focus) {
