@@ -1,0 +1,27 @@
+body { 
+  padding: 0; 
+  margin: 0;
+} 
+
+.container { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+  height: 100vh; 
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-family: sans-serif;
+  /* -webkit-text-stroke: 2px black;
+     text-stroke: 2px black; */
+} 
+
+h1 { 
+  text-align: center;
+} 
+
+.digit { 
+  font-size: 150px; 
+  
+} 
