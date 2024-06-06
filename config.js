@@ -5,9 +5,10 @@ const config = {
   "focusRatio": 5, // 5 = 50 minutes of focus, 10 minutes of break
   "autostartFocusAfterBreak": false, // TODO make this do something
   "showHours": false, // false = 75:00, true = 1:15:00
+  "mainCommand": "timer", // the first part of command i.e. !timer pause
   "resourcePaths": {
-    "focusSoundPath": "res/workSound.riff", // sound that plays on !focus command
-    "breakSoundPath": "res/breakSound.riff" // sound that plays on !break command
+    "focusSoundPath": "res/workSound.riff", // sound that plays on !timer focus command
+    "breakSoundPath": "res/breakSound.riff" // sound that plays on !timer break command
   },
   "messages": {
     "startFocus": "Starting the focus timer. See you during the break!",

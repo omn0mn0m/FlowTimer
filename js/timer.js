@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
-  if( flags.broadcaster) {
-    switch(command) {
+  if( flags.broadcaster && command == config.mainCommand ) {
+    switch (message) {
       case "focus":
         clearInterval(timer);
         startTime = Date.now();
@@ -54,48 +54,43 @@ ComfyJS.onCommand = ( user, command, message, flags, extra ) => {
         document.getElementById("phase").innerText = "Break #" + breakCount;
         focusDuration = 0;
         break;
-      case "timer":
-        switch (message){
-          case "check":
-            const calculatedFocusTime = (totalFocusTime + focusDuration) / 1000;
-            const hours = Math.floor(calculatedFocusTime / 3600);
-            const minutes = Math.floor((calculatedFocusTime % 3600) / 60);
-            const seconds = Math.floor((calculatedFocusTime % 3600) % 60);
-            
-            ComfyJS.Say(`${config.twitchStreamer} has focused a total of ${hours} hour(s), ${minutes} minute(s), and ${seconds} second(s).`);
-            break;
-          case "reset":
-            if (flowState == FlowState.Focus) {
-              startTime = Date.now();
-            } else if (flowState == FlowState.Break) {
-              let breakTime = focusDuration / focusRatio;
-              endTime = Date.now() + breakTime;
-            } else {}
-            
-            setTimeDisplay(0);
-            break;
-          case "pause":
-            pauseTime = Date.now();
-            
-            if (flowState == FlowState.Focus) {
-              clearInterval(stopwatch);
-            } else if (flowState == FlowState.Break) {
-              clearInterval(timer);
-            } else {}
-            break;
-          case "resume":
-            const offset = Date.now() - pauseTime;
-            
-            if (flowState == FlowState.Focus) {
-              startTime += offset;
-              runStopwatch();
-            } else if (flowState == FlowState.Break) {
-              endTime += offset;
-              runTimer();
-            } else {}
-            break;
-        }
-      default:
+      case "check":
+        const calculatedFocusTime = (totalFocusTime + focusDuration) / 1000;
+        const hours = Math.floor(calculatedFocusTime / 3600);
+        const minutes = Math.floor((calculatedFocusTime % 3600) / 60);
+        const seconds = Math.floor((calculatedFocusTime % 3600) % 60);
+        
+        ComfyJS.Say(`${config.twitchStreamer} has focused a total of ${hours} hour(s), ${minutes} minute(s), and ${seconds} second(s).`);
+        break;
+      case "reset":
+        if (flowState == FlowState.Focus) {
+          startTime = Date.now();
+        } else if (flowState == FlowState.Break) {
+          let breakTime = focusDuration / focusRatio;
+          endTime = Date.now() + breakTime;
+        } else {}
+        
+        setTimeDisplay(0);
+        break;
+      case "pause":
+        pauseTime = Date.now();
+        
+        if (flowState == FlowState.Focus) {
+          clearInterval(stopwatch);
+        } else if (flowState == FlowState.Break) {
+          clearInterval(timer);
+        } else {}
+        break;
+      case "resume":
+        const offset = Date.now() - pauseTime;
+        
+        if (flowState == FlowState.Focus) {
+          startTime += offset;
+          runStopwatch();
+        } else if (flowState == FlowState.Break) {
+          endTime += offset;
+          runTimer();
+        } else {}
         break;
     }
   }
