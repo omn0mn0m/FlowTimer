@@ -7,8 +7,8 @@ This widget calculates a break countdown timer proportional to the amount of tim
 
 ## Commands
 ### Main Commands
-- `!focus` - starts the focus timer (counts up)
-- `!break` - starts the break timer (counts down)
+- `!timer focus` - starts the focus timer (counts up)
+- `!timer break` - starts the break timer (counts down)
 
 ### Other Commands
 - `!timer check` - shows how long you have focused this stream
@@ -44,6 +44,7 @@ Go to https://twitchapps.com/tmi/ and log in **to your bot account** to get a oa
 | focusRatio               | Ratio of focus to break time                 | 5        |
 | autostartFocusAfterBreak | Whether to autostart the next focus timer    | false    |
 | showHours                | Whether to show hours on the timer (00:00:00 | false    |
+| mainCommand              | First part of command i.e. "!timer pause"    | "timer"  |
 
 The resource paths are for customising the sounds that play. It is easiest to put the sound file in the `res` folder then reference it in the format currently used, but you can use an absolute path instead if you want.
 
