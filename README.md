@@ -3,14 +3,16 @@ Flowtime timer widget for coworking/ studying livestreams
 
 ## Commands
 ### Main Commands
-- `!timer focus` - starts the focus timer (counts up)
-- `!timer break` - starts the break timer (counts down)
+- `!timer focus` or `!timer start` - starts the focus timer
+- `!timer break` - starts the break timer
 
 ### Other Commands
+- `!timer flowmode` - switches to flowtime mode (focus timer goes up, break timer goes down)
+- `!timer pomomode` - switches to pomodoro mode (focus timer goes down, break timer goes down)
 - `!timer check` - shows how long you have focused this stream
-- `!timer reset` - resets the current timer (00:00 if focusing, start of break if breaking)
+- `!timer reset` - resets the current timer
 - `!timer pause` - pauses the current timer
-- `!timer resume` - resumes the current timer
+- `!timer resume` or `!timer unpause` - resumes the current timer
 
 ## Installation
 1. Download the code (click "<> Code" then click "Download ZIP")
@@ -35,12 +37,20 @@ Go to https://twitchapps.com/tmi/ and log in **to your bot account** to get a oa
 
 ### Optional Configuration
 
-| Config Property          | What Goes Here                               | Example  |
-|--------------------------|----------------------------------------------|----------|
-| focusRatio               | Ratio of focus to break time                 | 5        |
-| autostartFocusAfterBreak | Whether to autostart the next focus timer    | false    |
-| showHours                | Whether to show hours on the timer (00:00:00 | false    |
-| mainCommand              | First part of command i.e. "!timer pause"    | "timer"  |
+| Config Property          | What Goes Here                                    | Example    |
+|--------------------------|---------------------------------------------------|------------|
+| focusRatio               | Ratio of focus to break time (in flowtime mode)   | 5          |
+| autostartFocusAfterBreak | Whether to autostart the next focus timer         | false      |
+| showHours                | Whether to show hours on the timer (00:00:00)     | false      |
+| mainCommand              | First part of command i.e. "!timer pause"         | "timer"    |
+| defaultMode              | Whether to use "Pomodoro" mode or "Flowtime" mode | "Pomodoro" |
+
+
+| Pomodoro Property        | What Goes Here                     | Example    |
+|--------------------------|------------------------------------|------------|
+| focusDuration            | How long to focus for (in minutes) | 50         |
+| breakDuration            | How long to break for (in minutes) | 10         |
+| goal                     | How many pomodoro sessions to have | 5          |
 
 The resource paths are for customising the sounds that play. It is easiest to put the sound file in the `res` folder then reference it in the format currently used, but you can use an absolute path instead if you want.
 
