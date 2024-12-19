@@ -1,5 +1,5 @@
-# FlowTimer
-Flowtime timer widget for coworking/ studying livestreams 
+# obs-timer
+Timer widget for coworking/ studying livestreams 
 
 ## Commands
 ### Main Commands
